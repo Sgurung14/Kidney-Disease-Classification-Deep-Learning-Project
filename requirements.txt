@@ -7,7 +7,7 @@ numpy
 matplotlib
 seaborn
 python-box==6.0.2 # for easy dictionary access
-pyYAML
+pyYAML 
 tqdm
 ensure==1.0.2  # ensure annotations to check for correct data types in functions
 joblib
