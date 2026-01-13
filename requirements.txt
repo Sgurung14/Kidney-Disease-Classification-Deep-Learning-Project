@@ -6,13 +6,13 @@ notebook
 numpy
 matplotlib
 seaborn
-python-box==6.0.2
+python-box==6.0.2 # for easy dictionary access
 pyYAML
 tqdm
-ensure==1.0.2
+ensure==1.0.2  # ensure annotations to check for correct data types in functions
 joblib
 types-PyYAML
 scipy
 Flask
 Flask-Cors
-gdown
+gdowninstall 
