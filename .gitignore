@@ -2,3 +2,6 @@ artifacts/*
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
+logs/*
+

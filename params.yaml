@@ -2,7 +2,7 @@ AUGMENTATION: True
 IMAGE_SIZE: [224, 224, 3] # as per VGG 16 model
 BATCH_SIZE: 16
 INCLUDE_TOP: False # set false to rmove last layer for transfer learning
-EPOCHS: 1
-CLASSES: 2 # check for kidney tumour vs normal
+EPOCHS: 1 # set to 1 for testing purpose, change to 10 or more for actual training
+CLASSES: 4 # check for kidney tumour vs normal vs stone vs cyst
 WEIGHTS: imagenet # use imagenet weights for transfer learning
 LEARNING_RATE: 0.001

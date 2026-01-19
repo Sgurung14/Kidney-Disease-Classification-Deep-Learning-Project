@@ -1,4 +1,4 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: cnnClassifier
 Version: 0.0.0
 Summary: A deep learning project to classify kidney tumors as benign or cancerous using machine learning techniques on Kidney CT Scan images.
@@ -7,24 +7,13 @@ Author: Sgurung14
 Author-email: safin8312@hotmail.com
 Project-URL: Bug Tracker, https://github.com/Sgurung14/Kidney-Disease-Classification-Deep-Learning-Project/issues
 Description-Content-Type: text/markdown
-Requires-Dist: tensorflow==2.12.0
-Requires-Dist: pandas
-Requires-Dist: dvc
-Requires-Dist: mlflow==2.2.2
-Requires-Dist: notebook
-Requires-Dist: numpy
-Requires-Dist: matplotlib
-Requires-Dist: seaborn
-Requires-Dist: python-box==6.0.2
-Requires-Dist: pyYAML
-Requires-Dist: tqdm
-Requires-Dist: ensure==1.0.2
-Requires-Dist: joblib
-Requires-Dist: types-PyYAML
-Requires-Dist: scipy
-Requires-Dist: Flask
-Requires-Dist: Flask-Cors
-Requires-Dist: gdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: project-url
+Dynamic: summary
 
 # Kidney-Disease-Classification-Deep-Learning-Project
 
@@ -33,3 +22,49 @@ Requires-Dist: gdown
 Kidney tumors are growths in the kidneys that can be benign or cancerous. Most do not cause symptoms, and are discovered unexpectedly when being diagnosed.
 
 **This project aims to classify kidney tumors as benign or cancerous using machine learning techniques on Kidney CT Scan images.**
+
+## Workflows
+
+1. Update config.yaml
+2. Update params.yaml
+3. Update the entity
+4. Update the configuration manager in src config
+5. Update the components
+6. Update the pipeline 
+7. Update the main.py
+8. Update the dvc.yaml
+9. app.py
+
+# How to run?
+### STEPS:
+
+Clone the repository
+
+```bash
+https://github.com/krishnaik06/Kidney-Disease-Classification-Deep-Learning-Project
+```
+### STEP 01- Create a conda environment after opening the repository
+
+```bash
+conda create -n cnncls python=3.8 -y
+```
+
+```bash
+conda activate cnncls
+```
+
+
+### STEP 02- install the requirements
+```bash
+pip install -r requirements.txt
+```
+
+```bash
+# Finally run the following command
+python app.py
+```
+
+Now,
+```bash
+open up you local host and port
+```

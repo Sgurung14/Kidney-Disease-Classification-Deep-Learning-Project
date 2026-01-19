@@ -1,14 +1,30 @@
 import os
 import zipfile
 import kagglehub
-from cnnClassifier.utils.common import get_size
 from cnnClassifier import logger
 from cnnClassifier.entity.config_entity import DataIngestionConfig
 import shutil
+import random
+from pathlib import Path
 
 class DataIngestion:
     def __init__(self, config: DataIngestionConfig):
         self.config = config
+
+    def _limit_files_per_class(self, base_dir: Path, class_name: str, max_files: int = 100):
+        class_dir = Path(base_dir) / class_name
+
+        files = [f for f in class_dir.iterdir() if f.is_file()]
+
+        if len(files) <= max_files:
+            return  # nothing to trim
+
+        random.shuffle(files)
+        files_to_remove = files[max_files:]
+
+        for f in files_to_remove:
+            f.unlink()
+
 
     def download_file(self):
         '''
@@ -22,24 +38,20 @@ class DataIngestion:
 
             # Code to download data from self.config.source_URL
             file_id = dataset_url.split("/")[-2] + "/" + dataset_url.split("/")[-1].split("?")[0]
-            cache_path = kagglehub.dataset_download(file_id)
+            cache_path = Path(kagglehub.dataset_download(file_id))
 
             # Copy all files from cache to your project directory
-            shutil.copytree(cache_path, unzip_path, dirs_exist_ok=True)
+            #shutil.copytree(cache_path, unzip_path, dirs_exist_ok=True)
 
+            #LIMIT DATASET SIZE for speed during experimentation
+            self._limit_files_per_class(unzip_path, "CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/Cyst", max_files=100)
+            self._limit_files_per_class(unzip_path, "CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/Tumor", max_files=100)
+            self._limit_files_per_class(unzip_path, "CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/Normal", max_files=100)
+            self._limit_files_per_class(unzip_path, "CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/Cyst", max_files=100)
+            self._limit_files_per_class(unzip_path, "CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/Stone", max_files=100)
             
             logger.info(f"Data downloaded to {self.config.local_data_file} into {unzip_path}")
         except Exception as e:
             logger.error(f"Error occurred while downloading data: {e}")
             raise e
-        
-    def extract_zip_file(self):
-        """
-        zip_file_path: str
-        Extracts the zip file into the data directory
-        Function returns None
-        """
-        unzip_path = self.config.unzip_dir
-        os.makedirs(unzip_path, exist_ok=True)
-        with zipfile.ZipFile(self.config.local_data_file, 'r') as zip_ref:
-            zip_ref.extractall(unzip_path)
+    
