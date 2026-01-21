@@ -1,7 +1,10 @@
 artifacts/*
 
-# Jupyter Notebook
-.ipynb_checkpoints
-
 logs/*
 
+.DS_Store
+
+scores.json
+
+
+dvc.lock

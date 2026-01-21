@@ -1281,3 +1281,158 @@ x================x]
 [2026-01-20 15:13:14,642 - INFO - >>>>>> Stage Model Evaluation Stage completed <<<<<<
 
 x================x]
+[2026-01-21 10:13:12,262 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-01-21 10:13:12,269 - INFO - yaml file: params.yaml loaded successfully]
+[2026-01-21 10:13:12,271 - INFO - Created directory at: artifacts]
+[2026-01-21 10:13:12,272 - INFO - Created directory at: artifacts/data_ingestion]
+[2026-01-21 10:13:12,280 - INFO - Downloading data from source URL https://www.kaggle.com/datasets/nazmul0087/ct-kidney-dataset-normal-cyst-tumor-and-stone?resource=download to artifacts/data_ingestion]
+[2026-01-21 10:13:13,064 - INFO - Data downloaded to artifacts/data_ingestion/data.zip into artifacts/data_ingestion]
+[2026-01-21 10:14:52,370 - INFO - >>>>>> Stage Data Ingestion Stage started <<<<<<]
+[2026-01-21 10:14:52,372 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-01-21 10:14:52,373 - INFO - yaml file: params.yaml loaded successfully]
+[2026-01-21 10:14:52,373 - INFO - Created directory at: artifacts]
+[2026-01-21 10:14:52,374 - INFO - Created directory at: artifacts/data_ingestion]
+[2026-01-21 10:14:52,374 - INFO - Downloading data from source URL https://www.kaggle.com/datasets/nazmul0087/ct-kidney-dataset-normal-cyst-tumor-and-stone?resource=download to artifacts/data_ingestion]
+[2026-01-21 10:14:52,892 - ERROR - Error occurred while downloading data: [Errno 2] No such file or directory: 'artifacts/data_ingestion/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/Cyst']
+[2026-01-21 10:14:52,892 - ERROR - [Errno 2] No such file or directory: 'artifacts/data_ingestion/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/Cyst']
+Traceback (most recent call last):
+  File "/Users/inamgurung/Desktop/Projects/AWS/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 21, in <module>
+    data_ingestion_pipeline.main()
+  File "/Users/inamgurung/Desktop/Projects/AWS/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 15, in main
+    data_ingestion.download_file()
+  File "/Users/inamgurung/Desktop/Projects/AWS/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/components/data_ingestion.py", line 56, in download_file
+    raise e
+  File "/Users/inamgurung/Desktop/Projects/AWS/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/components/data_ingestion.py", line 47, in download_file
+    self._limit_files_per_class(unzip_path, "CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/Cyst", max_files=100)
+  File "/Users/inamgurung/Desktop/Projects/AWS/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/components/data_ingestion.py", line 17, in _limit_files_per_class
+    files = [f for f in class_dir.iterdir() if f.is_file()]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inamgurung/Desktop/Projects/AWS/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/components/data_ingestion.py", line 17, in <listcomp>
+    files = [f for f in class_dir.iterdir() if f.is_file()]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inamgurung/miniconda/envs/kidney2/lib/python3.11/pathlib.py", line 931, in iterdir
+    for name in os.listdir(self):
+                ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/data_ingestion/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/Cyst'
+[2026-01-21 11:49:04,311 - INFO - >>>>>> Stage Data Ingestion Stage started <<<<<<]
+[2026-01-21 11:49:04,314 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-01-21 11:49:04,318 - INFO - yaml file: params.yaml loaded successfully]
+[2026-01-21 11:49:04,319 - INFO - Created directory at: artifacts]
+[2026-01-21 11:49:04,319 - INFO - Created directory at: artifacts/data_ingestion]
+[2026-01-21 11:49:04,320 - INFO - Downloading data from source URL https://www.kaggle.com/datasets/nazmul0087/ct-kidney-dataset-normal-cyst-tumor-and-stone?resource=download to artifacts/data_ingestion]
+[2026-01-21 11:49:04,752 - ERROR - Error occurred while downloading data: [Errno 2] No such file or directory: 'artifacts/data_ingestion/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/Cyst']
+[2026-01-21 11:49:04,753 - ERROR - [Errno 2] No such file or directory: 'artifacts/data_ingestion/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/Cyst']
+Traceback (most recent call last):
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 21, in <module>
+    data_ingestion_pipeline.main()
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 15, in main
+    data_ingestion.download_file()
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/components/data_ingestion.py", line 56, in download_file
+    raise e
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/components/data_ingestion.py", line 47, in download_file
+    self._limit_files_per_class(unzip_path, "CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/Cyst", max_files=100)
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/components/data_ingestion.py", line 17, in _limit_files_per_class
+    files = [f for f in class_dir.iterdir() if f.is_file()]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/components/data_ingestion.py", line 17, in <listcomp>
+    files = [f for f in class_dir.iterdir() if f.is_file()]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inamgurung/miniconda/envs/kidney2/lib/python3.11/pathlib.py", line 931, in iterdir
+    for name in os.listdir(self):
+                ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/data_ingestion/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/Cyst'
+[2026-01-21 14:02:08,158 - INFO - >>>>>> Stage Prepare Base Model started <<<<<<]
+[2026-01-21 14:02:08,161 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-01-21 14:02:08,165 - INFO - yaml file: params.yaml loaded successfully]
+[2026-01-21 14:02:08,167 - INFO - Created directory at: artifacts]
+[2026-01-21 14:02:08,168 - INFO - Created directory at: artifacts/prepare_base_model]
+[2026-01-21 14:02:08,799 - WARNING - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-21 14:02:09,137 - INFO - >>>>>> Stage Prepare Base Model completed <<<<<<
+
+x================x]
+[2026-01-21 14:02:16,934 - INFO - >>>>>> Stage Model_Training started <<<<<<]
+[2026-01-21 14:02:16,936 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-01-21 14:02:16,938 - INFO - yaml file: params.yaml loaded successfully]
+[2026-01-21 14:02:16,938 - INFO - Created directory at: artifacts]
+[2026-01-21 14:02:16,939 - INFO - Created directory at: artifacts/training]
+[2026-01-21 14:02:17,384 - ERROR - [Errno 2] No such file or directory: 'artifacts/data_ingestion/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone']
+Traceback (most recent call last):
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/pipeline/stage_03_model_training.py", line 25, in <module>
+    obj.main()
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/pipeline/stage_03_model_training.py", line 18, in main
+    training.train_valid_generator()
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/components/model_training.py", line 29, in train_valid_generator
+    self.valid_generator = valid_datagen.flow_from_directory(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inamgurung/miniconda/envs/kidney2/lib/python3.11/site-packages/keras/preprocessing/image.py", line 1648, in flow_from_directory
+    return DirectoryIterator(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/inamgurung/miniconda/envs/kidney2/lib/python3.11/site-packages/keras/preprocessing/image.py", line 563, in __init__
+    for subdir in sorted(os.listdir(directory)):
+                         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/data_ingestion/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone'
+[2026-01-21 14:13:26,328 - INFO - >>>>>> Stage Model_Training started <<<<<<]
+[2026-01-21 14:13:26,331 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-01-21 14:13:26,336 - INFO - yaml file: params.yaml loaded successfully]
+[2026-01-21 14:13:26,338 - INFO - Created directory at: artifacts]
+[2026-01-21 14:13:26,339 - INFO - Created directory at: artifacts/training]
+[2026-01-21 14:14:29,190 - INFO - >>>>>> Stage Model_Training completed <<<<<<
+
+x==========x]
+[2026-01-21 14:22:36,620 - INFO - >>>>>> stage Model Evaluation Stage started <<<<<<]
+[2026-01-21 14:22:36,623 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-01-21 14:22:36,628 - INFO - yaml file: params.yaml loaded successfully]
+[2026-01-21 14:22:36,629 - INFO - Created directory at: artifacts]
+[2026-01-21 14:22:54,376 - INFO - JSON file saved at: scores.json]
+[2026-01-21 14:22:57,388 - WARNING - Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 14). These functions will not be directly callable after loading.]
+[2026-01-21 14:22:57,918 - INFO - Assets written to: /var/folders/kz/kl5h7crd0r12br7n4ny5yvv80000gn/T/tmp45rfluyc/model/data/model/assets]
+[2026-01-21 14:23:30,359 - INFO - >>>>>> stage Model Evaluation Stage completed <<<<<<
+
+x==========x]
+[2026-01-21 14:26:28,091 - INFO - >>>>>> stage Model Evaluation Stage started <<<<<<]
+[2026-01-21 14:26:28,094 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-01-21 14:26:28,098 - INFO - yaml file: params.yaml loaded successfully]
+[2026-01-21 14:26:28,099 - INFO - Created directory at: artifacts]
+[2026-01-21 14:26:46,069 - INFO - JSON file saved at: scores.json]
+[2026-01-21 14:26:48,799 - WARNING - Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 14). These functions will not be directly callable after loading.]
+[2026-01-21 14:26:49,334 - INFO - Assets written to: /var/folders/kz/kl5h7crd0r12br7n4ny5yvv80000gn/T/tmpiw8ehwp3/model/data/model/assets]
+[2026-01-21 14:27:19,689 - INFO - >>>>>> stage Model Evaluation Stage completed <<<<<<
+
+x==========x]
+[2026-01-21 14:27:56,477 - INFO - >>>>>> stage Model Evaluation Stage started <<<<<<]
+[2026-01-21 14:27:56,480 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-01-21 14:27:56,482 - INFO - yaml file: params.yaml loaded successfully]
+[2026-01-21 14:27:56,482 - INFO - Created directory at: artifacts]
+[2026-01-21 14:28:12,274 - INFO - JSON file saved at: scores.json]
+[2026-01-21 14:28:14,937 - WARNING - Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 14). These functions will not be directly callable after loading.]
+[2026-01-21 14:28:15,416 - INFO - Assets written to: /var/folders/kz/kl5h7crd0r12br7n4ny5yvv80000gn/T/tmpgxa6mn04/model/data/model/assets]
+[2026-01-21 14:28:46,974 - INFO - >>>>>> stage Model Evaluation Stage completed <<<<<<
+
+x==========x]
+[2026-01-21 14:56:56,543 - INFO - >>>>>> Stage Data Ingestion Stage started <<<<<<]
+[2026-01-21 14:56:56,546 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-01-21 14:56:56,551 - INFO - yaml file: params.yaml loaded successfully]
+[2026-01-21 14:56:56,552 - INFO - Created directory at: artifacts]
+[2026-01-21 14:56:56,552 - INFO - Created directory at: artifacts/data_ingestion]
+[2026-01-21 14:56:56,552 - INFO - Downloading data from source URL https://www.kaggle.com/datasets/nazmul0087/ct-kidney-dataset-normal-cyst-tumor-and-stone?resource=download to artifacts/data_ingestion]
+[2026-01-21 14:56:57,001 - ERROR - Error occurred while downloading data: [Errno 2] No such file or directory: 'artifacts/data_ingestion/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/Cyst']
+[2026-01-21 14:56:57,001 - ERROR - [Errno 2] No such file or directory: 'artifacts/data_ingestion/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/Cyst']
+Traceback (most recent call last):
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 21, in <module>
+    data_ingestion_pipeline.main()
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 15, in main
+    data_ingestion.download_file()
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/components/data_ingestion.py", line 56, in download_file
+    raise e
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/components/data_ingestion.py", line 47, in download_file
+    self._limit_files_per_class(unzip_path, "CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/Cyst", max_files=100)
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/components/data_ingestion.py", line 17, in _limit_files_per_class
+    files = [f for f in class_dir.iterdir() if f.is_file()]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/components/data_ingestion.py", line 17, in <listcomp>
+    files = [f for f in class_dir.iterdir() if f.is_file()]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inamgurung/miniconda/envs/kidney2/lib/python3.11/pathlib.py", line 931, in iterdir
+    for name in os.listdir(self):
+                ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/data_ingestion/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/Cyst'
