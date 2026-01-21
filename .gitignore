@@ -5,6 +5,3 @@ logs/*
 .DS_Store
 
 scores.json
-
-
-dvc.lock
