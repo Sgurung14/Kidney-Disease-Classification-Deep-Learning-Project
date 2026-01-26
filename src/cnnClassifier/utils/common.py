@@ -110,7 +110,7 @@ def get_size(path: Path) -> str:
     return f"~ {size_in_kb} KB"
 
 @ensure_annotations
-def decode_image(imgstring: str, filename: str) -> None:
+def decode_image(imgstring: str, filename: str):
     """Decodes base64 string and saves it as an image file
 
     Args:
