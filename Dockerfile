@@ -1,16 +1,6 @@
-FROM python:3.11-slim-buster
+FROM python:3.11-buster
 
-RUN apt-get update && apt-get install -y \
-    curl \
-    unzip \
-    ca-certificates \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
-    && unzip awscliv2.zip \
-    && ./aws/install \
-    && rm -rf aws awscliv2.zip
-
+RUN apt update -y && apt install awscli -y
 WORKDIR /app
 
 COPY . /app
