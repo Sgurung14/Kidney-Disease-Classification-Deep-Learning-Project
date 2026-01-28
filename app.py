@@ -31,7 +31,6 @@ def trainRoute():
 @app.route("/predict", methods=['POST'])
 @cross_origin()
 def predictRoute():
-    print("🔥 /predict endpoint hit")
     image = request.json['image']
     decode_image(image, clApp.filename)
     result = clApp.classifier.predict()
