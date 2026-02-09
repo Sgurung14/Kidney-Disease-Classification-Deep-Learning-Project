@@ -82,8 +82,8 @@ stages:
       size: 586
     - path: src/cnnClassifier/pipeline/stage_04_model_evaluation.py
       hash: md5
-      md5: 053107541301526e5baa454a3348c083
-      size: 864
+      md5: 6c0999f1a512429a36e1c25987606db4
+      size: 915
     params:
       params.yaml:
         BATCH_SIZE: 16

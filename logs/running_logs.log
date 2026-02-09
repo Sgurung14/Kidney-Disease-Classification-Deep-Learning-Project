@@ -1,0 +1,80 @@
+[2026-02-09 10:26:13,394 - INFO - >>>>>> stage Model Evaluation Stage started <<<<<<]
+[2026-02-09 10:26:13,398 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-02-09 10:26:13,399 - INFO - yaml file: params.yaml loaded successfully]
+[2026-02-09 10:26:13,400 - INFO - Created directory at: artifacts]
+[2026-02-09 10:26:33,637 - INFO - JSON file saved at: scores.json]
+[2026-02-09 10:26:33,638 - INFO - >>>>>> stage Model Evaluation Stage completed <<<<<<
+
+x==========x]
+[2026-02-09 10:28:46,768 - INFO - >>>>>> Stage Data Ingestion Stage started <<<<<<]
+[2026-02-09 10:28:46,772 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-02-09 10:28:46,778 - INFO - yaml file: params.yaml loaded successfully]
+[2026-02-09 10:28:46,781 - INFO - Created directory at: artifacts]
+[2026-02-09 10:28:46,781 - INFO - Created directory at: artifacts/data_ingestion]
+[2026-02-09 10:28:46,782 - INFO - Downloading data from source URL https://www.kaggle.com/datasets/nazmul0087/ct-kidney-dataset-normal-cyst-tumor-and-stone?resource=download to artifacts/data_ingestion]
+[2026-02-09 10:28:47,518 - INFO - Data downloaded to artifacts/data_ingestion/data.zip into artifacts/data_ingestion]
+[2026-02-09 10:28:47,518 - INFO - >>>>>> Stage Data Ingestion Stage completed <<<<<<
+
+x================x]
+[2026-02-09 10:28:47,519 - INFO - >>>>>> Stage Prepare Base Model Stage started <<<<<<]
+[2026-02-09 10:28:47,520 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-02-09 10:28:47,521 - INFO - yaml file: params.yaml loaded successfully]
+[2026-02-09 10:28:47,521 - INFO - Created directory at: artifacts]
+[2026-02-09 10:28:47,521 - INFO - Created directory at: artifacts/prepare_base_model]
+[2026-02-09 10:28:48,177 - WARNING - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-09 10:28:48,632 - INFO - >>>>>> Stage Prepare Base Model Stage completed <<<<<<
+
+x================x]
+[2026-02-09 10:28:48,633 - INFO - >>>>>> Stage Model Training Stage started <<<<<<]
+[2026-02-09 10:28:48,634 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-02-09 10:28:48,636 - INFO - yaml file: params.yaml loaded successfully]
+[2026-02-09 10:28:48,636 - INFO - Created directory at: artifacts]
+[2026-02-09 10:28:48,636 - INFO - Created directory at: artifacts/training]
+[2026-02-09 10:29:44,874 - ERROR - /kaggle; Read-only file system]
+Traceback (most recent call last):
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/main.py", line 31, in <module>
+    model_training_pipeline.main()
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/pipeline/stage_03_model_training.py", line 19, in main
+    training.train()
+  File "/Users/inamgurung/Desktop/Projects/Kidney-Disease-Classification/Kidney-Disease-Classification-Deep-Learning-Project/src/cnnClassifier/components/model_training.py", line 103, in train
+    self.model.fit(
+  File "/Users/inamgurung/miniconda/envs/kidney2/lib/python3.11/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/Users/inamgurung/miniconda/envs/kidney2/lib/python3.11/site-packages/tensorflow/python/lib/io/file_io.py", line 513, in recursive_create_dir_v2
+    _pywrap_file_io.RecursivelyCreateDir(compat.path_to_bytes(path))
+tensorflow.python.framework.errors_impl.PermissionDeniedError: /kaggle; Read-only file system
+[2026-02-09 10:32:38,326 - INFO - >>>>>> Stage Data Ingestion Stage started <<<<<<]
+[2026-02-09 10:32:38,330 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-02-09 10:32:38,335 - INFO - yaml file: params.yaml loaded successfully]
+[2026-02-09 10:32:38,338 - INFO - Created directory at: artifacts]
+[2026-02-09 10:32:38,338 - INFO - Created directory at: artifacts/data_ingestion]
+[2026-02-09 10:32:38,338 - INFO - Downloading data from source URL https://www.kaggle.com/datasets/nazmul0087/ct-kidney-dataset-normal-cyst-tumor-and-stone?resource=download to artifacts/data_ingestion]
+[2026-02-09 10:32:39,035 - INFO - Data downloaded to artifacts/data_ingestion/data.zip into artifacts/data_ingestion]
+[2026-02-09 10:32:39,036 - INFO - >>>>>> Stage Data Ingestion Stage completed <<<<<<
+
+x================x]
+[2026-02-09 10:32:39,036 - INFO - >>>>>> Stage Prepare Base Model Stage started <<<<<<]
+[2026-02-09 10:32:39,037 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-02-09 10:32:39,039 - INFO - yaml file: params.yaml loaded successfully]
+[2026-02-09 10:32:39,039 - INFO - Created directory at: artifacts]
+[2026-02-09 10:32:39,039 - INFO - Created directory at: artifacts/prepare_base_model]
+[2026-02-09 10:32:39,674 - WARNING - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-09 10:32:40,181 - INFO - >>>>>> Stage Prepare Base Model Stage completed <<<<<<
+
+x================x]
+[2026-02-09 10:32:40,181 - INFO - >>>>>> Stage Model Training Stage started <<<<<<]
+[2026-02-09 10:32:40,182 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-02-09 10:32:40,183 - INFO - yaml file: params.yaml loaded successfully]
+[2026-02-09 10:32:40,184 - INFO - Created directory at: artifacts]
+[2026-02-09 10:32:40,184 - INFO - Created directory at: artifacts/training]
+[2026-02-09 10:33:33,460 - INFO - >>>>>> Stage Model Training Stage completed <<<<<<
+
+x================x]
+[2026-02-09 10:33:33,460 - INFO - >>>>>> Stage Model Evaluation Stage started <<<<<<]
+[2026-02-09 10:33:33,463 - INFO - yaml file: config/config.yaml loaded successfully]
+[2026-02-09 10:33:33,465 - INFO - yaml file: params.yaml loaded successfully]
+[2026-02-09 10:33:33,465 - INFO - Created directory at: artifacts]
+[2026-02-09 10:33:49,408 - INFO - JSON file saved at: scores.json]
+[2026-02-09 10:33:49,408 - INFO - >>>>>> Stage Model Evaluation Stage completed <<<<<<
+
+x================x]

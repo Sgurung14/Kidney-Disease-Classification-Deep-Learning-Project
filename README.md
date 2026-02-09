@@ -6,6 +6,59 @@ Kidney tumors are growths in the kidneys that can be benign or cancerous. Most d
 
 **This project aims to classify kidney tumors as benign or cancerous using machine learning techniques on Kidney CT Scan images.**
 
+### Tech Stack  
+
+| Layer | Technology |
+|------|-----------|
+| Language | Python |
+| Data Versioning | DVC |
+| Experiment Tracking | MLflow |
+| Pipeline | DVC + Python scripts |
+| Environment | Conda / pip |
+| API Serving | Flask / FastAPI |
+| CI/CD | GitHub Actions |
+| Cloud | AWS EC2 |
+
+---
+
+
+## Preprocessing Pipeline
+
+This project uses a lightweight, medically appropriate preprocessing pipeline tailored for **2D CT kidney images (JPG)** and **transfer learning**.
+
+---
+
+
+### 1. Image Resizing
+Matches the input size expected by pretrained CNNs (e.g., ResNet, EfficientNet) and ensures consistent batching.
+
+
+
+### 2. ImageNet Preprocessing
+Aligns image intensity distribution with ImageNet-trained weights, enabling effective feature reuse and faster convergence.
+
+
+
+### 3. Intensity Normalization  
+Stabilizes training across scans from different hospitals, scanners, and contrast protocols.
+
+
+
+### 4. Data Augmentation (Training Only)
+Improves robustness to anatomical variation, scanner differences, and contrast variability while preserving anatomical realism.
+
+
+
+### 5. No Vertical Flipping
+Up–down flipping violates human anatomical orientation and degrades generalization in CT imaging.
+
+
+
+### 6. Class Imbalance Handling
+Ensures minority classes (tumor, stone) contribute proportionally to the loss, improving recall and balanced performance.
+
+---
+
 ## Workflows
 
 1. Update config.yaml

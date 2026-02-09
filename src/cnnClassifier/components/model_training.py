@@ -1,6 +1,12 @@
 from cnnClassifier.entity.config_entity import TrainingConfig
 from pathlib import Path
 import tensorflow as tf
+from tensorflow.keras.applications.efficientnet import preprocess_input
+from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
+from sklearn.utils.class_weight import compute_class_weight
+import numpy as np
+
+
 
 class Training:
     def __init__(self, config: TrainingConfig):
@@ -14,7 +20,7 @@ class Training:
     def train_valid_generator(self):
 
         datagenerator_kwargs = dict(
-            rescale=1./255,
+            preprocessing_function=preprocess_input, # normalises to imagenet data distribution
             validation_split=0.20
         )
 
@@ -34,16 +40,17 @@ class Training:
         )
 
         if self.config.params_is_augmentation:
-            train_datagen = tf.keras.preprocessing.image.ImageDataGenerator(
-                rotation_range=40,
-                horizontal_flip=True,
-                vertical_flip=True,
-                width_shift_range=0.2,
-                height_shift_range=0.2,
-                shear_range=0.2,
-                zoom_range=0.2,
+                train_datagen = tf.keras.preprocessing.image.ImageDataGenerator(
+                rotation_range=15,          
+                horizontal_flip=True,       
+                vertical_flip=False,        
+                width_shift_range=0.1,
+                height_shift_range=0.1,
+                zoom_range=0.1,
+                brightness_range=(0.8, 1.2),  # brightness augmentation
                 **datagenerator_kwargs
             )
+
         else:
             train_datagen = valid_datagen
         
@@ -59,6 +66,37 @@ class Training:
         model.save(path)
 
     def train(self):
+        early_stop = EarlyStopping(
+            monitor='val_loss',
+            patience=10,
+            restore_best_weights=True
+        )
+
+        checkpoint = ModelCheckpoint(
+            self.config.trained_model_path,
+            monitor='val_loss',
+            save_best_only=True,
+            verbose=1
+        )
+
+        reduce_lr = ReduceLROnPlateau(
+            monitor='val_loss',   # or 'val_accuracy'
+            factor=0.5,           # multiply LR by this
+            patience=5,           # wait this many epochs
+            min_lr=1e-6,
+            verbose=1
+        )
+
+        #Errors on rare classes are penalised more than errors on common classes due to imbalance 
+
+        class_weights = compute_class_weight(
+            class_weight="balanced",
+            classes=np.unique(self.train_generator.classes),
+            y=self.train_generator.classes
+        )
+
+        class_weights = dict(enumerate(class_weights))
+
         self.steps_per_epoch = self.train_generator.samples // self.train_generator.batch_size
         self.validation_steps = self.valid_generator.samples // self.valid_generator.batch_size
 
@@ -67,10 +105,12 @@ class Training:
             epochs=self.config.params_epochs,
             steps_per_epoch=self.steps_per_epoch,
             validation_steps=self.validation_steps,
-            validation_data=self.valid_generator
+            validation_data=self.valid_generator,
+            class_weight=class_weights,
+            callbacks=[reduce_lr, early_stop, checkpoint]
         )
 
-        self.save_model(
-            path=self.config.trained_model_path,
-            model=self.model
-        )
+       # self.save_model(
+       #     path=self.config.trained_model_path,
+       #     model=self.model
+       # )
